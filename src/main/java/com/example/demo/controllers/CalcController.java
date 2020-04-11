@@ -7,33 +7,28 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class CalcController {
 
-    private CalcDivImpl calcDivImpl;
-    private CalcMultImpl calcMultImpl;
-    private CalcResImpl calcResImpl;
-    private CalcSumImpl calcSumImpl;
+    private Calc calc;
+
 
     @Autowired
-    public CalcController(CalcDivImpl calcDivImpl, CalcMultImpl calcMultImpl,CalcResImpl calcResImpl, CalcSumImpl calcSumImpl){
-        this.calcDivImpl = calcDivImpl;
-        this.calcMultImpl = calcMultImpl;
-        this.calcResImpl = calcResImpl;
-        this.calcSumImpl = calcSumImpl;
+    public CalcController(Calc calc){
+        this.calc = calc;
 
     }
-
     @GetMapping("/calc")
     public int calcMeth(int numA, int numB, String calcType){
 
-        if(calcType.equals("div")) {
-            return calcDivImpl.calcMethod(numA, numB);
-        }else if(calcType.equals("mult")){
-            return calcMultImpl.calcMethod(numA,numB);
-        }else if (calcType.equals("res")){
-            return calcResImpl.calcMethod(numA,numB);
-        }else if (calcType.equals("sum")){
-            return calcSumImpl.calcMethod(numA,numB);
-        }else{
-            throw new RuntimeException("CalcType incorrecto necesita ser un: div/mult/res/sum");
+        switch (calcType) {
+            case "div":
+                return calc.divMethod(numA, numB);
+            case "mult":
+                return calc.multMethod(numA, numB);
+            case "res":
+                return calc.resMethod(numA, numB);
+            case "sum":
+                return calc.sumMethod(numA, numB);
+            default:
+                throw new RuntimeException("CalcType incorrecto necesita ser un: div/mult/res/sum");
         }
     }
 }
