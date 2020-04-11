@@ -1,4 +1,5 @@
 package com.example.demo.controllers;
+import com.example.demo.model.CalcType;
 import com.example.demo.services.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,19 +17,17 @@ public class CalcController {
 
     }
     @GetMapping("/calc")
-    public int calcMeth(int numA, int numB, String calcType){
+    public int calcMeth(int numA, int numB, CalcType calcType){
 
         switch (calcType) {
-            case "div":
+            case div:
                 return calc.divMethod(numA, numB);
-            case "mult":
+            case mult:
                 return calc.multMethod(numA, numB);
-            case "res":
+            case res:
                 return calc.resMethod(numA, numB);
-            case "sum":
+            case sum:
                 return calc.sumMethod(numA, numB);
-            default:
-                throw new RuntimeException("CalcType incorrecto necesita ser un: div/mult/res/sum");
         }
     }
 }
