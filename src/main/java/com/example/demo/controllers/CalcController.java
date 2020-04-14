@@ -27,6 +27,9 @@ public class CalcController {
                 return calc.resMethod(numA, numB);
             case sum:
                 return calc.sumMethod(numA, numB);
+
+            default:
+                throw new RuntimeException("regalame el RE3");
         }
     }
 }

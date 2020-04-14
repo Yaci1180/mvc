@@ -4,9 +4,9 @@ import lombok.*;
 import javax.persistence.*;
 
 @Entity
-@Table(name = 'calculos')
+@Table(name = "calculo")
 @Getter @Setter @NoArgsConstructor @AllArgsConstructor @Builder
-public class Calculos {
+public class Calculo {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
