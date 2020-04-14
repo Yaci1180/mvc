@@ -10,7 +10,6 @@ public class CalcController {
 
     private Calc calc;
 
-
     @Autowired
     public CalcController(Calc calc){
         this.calc = calc;
