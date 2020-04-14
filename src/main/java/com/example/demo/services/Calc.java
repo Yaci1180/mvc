@@ -11,5 +11,6 @@ public interface Calc {
     double sumMethod(double numA, double numB);
     double potMethod(double numA, double numB);
     Calculo getCalcMethod(Long calcId);
+    void deleteCalcMethod(Long calcId);
 
 }

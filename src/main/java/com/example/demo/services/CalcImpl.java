@@ -10,18 +10,19 @@ import java.util.Optional;
 import static java.lang.StrictMath.pow;
 
 @Service
-public class CalcImpl implements Calc{
+public class CalcImpl implements Calc {
 
-    private  final CalculoRepository calculoRepository;
+    private final CalculoRepository calculoRepository;
 
     @Autowired
-    public CalcImpl(CalculoRepository calculoRepository){
+    public CalcImpl(CalculoRepository calculoRepository) {
         this.calculoRepository = calculoRepository;
 
     }
+
     @Override
     public double divMethod(double numA, double numB) {
-        double div = numA/numB;
+        double div = numA / numB;
 
         Calculo calculo = Calculo.builder()
                 .calcType(CalcType.div)
@@ -82,9 +83,10 @@ public class CalcImpl implements Calc{
 
         return sum;
     }
+
     @Override
     public double potMethod(double numA, double numB) {
-        double sum = pow(numA,numB);
+        double sum = pow(numA, numB);
 
         Calculo calculo = Calculo.builder()
                 .calcType(CalcType.pot)
@@ -106,6 +108,11 @@ public class CalcImpl implements Calc{
 
         }
         return null;
+    }
+
+    @Override
+    public void deleteCalcMethod(Long calcId) {
+        calculoRepository.deleteById(calcId);
     }
 
 }

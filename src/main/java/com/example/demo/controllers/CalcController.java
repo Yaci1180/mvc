@@ -39,4 +39,9 @@ public class CalcController {
     public Calculo getCalc(Long calcId){
         return calc.getCalcMethod(calcId);
     }
+
+    @GetMapping("/deletCalc")
+    public void deleteCalc(Long calcId){
+        calc.deleteCalcMethod(calcId);
+    }
 }
