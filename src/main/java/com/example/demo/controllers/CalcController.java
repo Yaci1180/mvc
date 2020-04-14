@@ -34,7 +34,7 @@ public class CalcController {
                 throw new RuntimeException("messi");
         }
     }
-    @GetMapping
+    @GetMapping("/getCalc")
     public Calculo getCalc(Long calcId){
         return calc.getCalcMethod(calcId);
     }
