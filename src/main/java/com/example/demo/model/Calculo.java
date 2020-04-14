@@ -15,8 +15,8 @@ public class Calculo {
     @Enumerated(EnumType.STRING)
     private CalcType calcType;
 
-    private int numA;
-    private int numB;
-    private int result;
+    private double numA;
+    private double numB;
+    private double result;
 
 }

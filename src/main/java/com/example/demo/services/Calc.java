@@ -5,10 +5,11 @@ import com.example.demo.model.Calculo;
 
 public interface Calc {
 
-    int divMethod(int numA, int numB);
-    int multMethod(int numA, int numB);
-    int resMethod(int numA, int numB);
-    int sumMethod(int numA, int numB);
+    double divMethod(double numA, double numB);
+    double multMethod(double numA, double numB);
+    double resMethod(double numA, double numB);
+    double sumMethod(double numA, double numB);
+    double potMethod(double numA, double numB);
     Calculo getCalcMethod(Long calcId);
 
 }

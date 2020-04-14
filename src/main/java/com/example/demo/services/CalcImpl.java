@@ -7,6 +7,8 @@ import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
+import static java.lang.StrictMath.pow;
+
 @Service
 public class CalcImpl implements Calc{
 
@@ -18,8 +20,8 @@ public class CalcImpl implements Calc{
 
     }
     @Override
-    public int divMethod(int numA, int numB) {
-        int div = numA/numB;
+    public double divMethod(double numA, double numB) {
+        double div = numA/numB;
 
         Calculo calculo = Calculo.builder()
                 .calcType(CalcType.div)
@@ -34,8 +36,8 @@ public class CalcImpl implements Calc{
     }
 
     @Override
-    public int multMethod(int numA, int numB) {
-        int mult = numA * numB;
+    public double multMethod(double numA, double numB) {
+        double mult = numA * numB;
 
         Calculo calculo = Calculo.builder()
                 .calcType(CalcType.mult)
@@ -50,8 +52,8 @@ public class CalcImpl implements Calc{
     }
 
     @Override
-    public int resMethod(int numA, int numB) {
-        int res = numA - numB;
+    public double resMethod(double numA, double numB) {
+        double res = numA - numB;
 
         Calculo calculo = Calculo.builder()
                 .calcType(CalcType.res)
@@ -66,11 +68,26 @@ public class CalcImpl implements Calc{
     }
 
     @Override
-    public int sumMethod(int numA, int numB) {
-        int sum = numA + numB;
+    public double sumMethod(double numA, double numB) {
+        double sum = numA + numB;
 
         Calculo calculo = Calculo.builder()
                 .calcType(CalcType.sum)
+                .numA(numA)
+                .numB(numB)
+                .result(sum)
+                .build();
+
+        calculoRepository.save(calculo);
+
+        return sum;
+    }
+    @Override
+    public double potMethod(double numA, double numB) {
+        double sum = pow(numA,numB);
+
+        Calculo calculo = Calculo.builder()
+                .calcType(CalcType.pot)
                 .numA(numA)
                 .numB(numB)
                 .result(sum)
@@ -90,4 +107,5 @@ public class CalcImpl implements Calc{
         }
         return null;
     }
+
 }

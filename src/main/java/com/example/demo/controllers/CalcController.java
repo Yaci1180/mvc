@@ -18,7 +18,7 @@ public class CalcController {
 
     }
     @PostMapping("/calc")
-    public int calcMeth(int numA, int numB, CalcType calcType){
+    public double calcMeth(double numA, double numB, CalcType calcType){
 
         switch (calcType) {
             case div:
@@ -29,7 +29,8 @@ public class CalcController {
                 return calc.resMethod(numA, numB);
             case sum:
                 return calc.sumMethod(numA, numB);
-
+            case pot:
+                return calc.potMethod(numA, numB);
             default:
                 throw new RuntimeException("messi");
         }
