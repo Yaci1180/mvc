@@ -15,7 +15,6 @@ public class CalcImpl implements Calc{
         this.calculoRepository = calculoRepository;
 
     }
-
     @Override
     public int divMethod(int numA, int numB) {
         int div = numA/numB;
