@@ -1,8 +1,10 @@
 package com.example.demo.controllers;
 import com.example.demo.model.CalcType;
+import com.example.demo.model.Calculo;
 import com.example.demo.services.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -15,7 +17,7 @@ public class CalcController {
         this.calc = calc;
 
     }
-    @GetMapping("/calc")
+    @PostMapping("/calc")
     public int calcMeth(int numA, int numB, CalcType calcType){
 
         switch (calcType) {
@@ -29,7 +31,11 @@ public class CalcController {
                 return calc.sumMethod(numA, numB);
 
             default:
-                throw new RuntimeException("regalame el RE3");
+                throw new RuntimeException("messi");
         }
+    }
+    @GetMapping
+    public Calculo getCalc(Long calcId){
+        return calc.getCalcMethod(calcId);
     }
 }

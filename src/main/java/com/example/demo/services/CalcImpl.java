@@ -5,6 +5,8 @@ import com.example.demo.repositories.CalculoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 public class CalcImpl implements Calc{
 
@@ -77,5 +79,15 @@ public class CalcImpl implements Calc{
         calculoRepository.save(calculo);
 
         return sum;
+    }
+
+    @Override
+    public Calculo getCalcMethod(Long calcId) {
+        Optional<Calculo> calculoO = calculoRepository.findById(calcId);
+        if (calculoO.isPresent()) {
+            return calculoO.get();
+
+        }
+        return null;
     }
 }
