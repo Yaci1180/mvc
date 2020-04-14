@@ -1,7 +1,10 @@
 package com.example.demo.services;
 
 
+import com.example.demo.model.CalcType;
 import com.example.demo.model.Calculo;
+
+import java.util.List;
 
 public interface Calc {
 
@@ -12,5 +15,5 @@ public interface Calc {
     double potMethod(double numA, double numB);
     Calculo getCalcMethod(Long calcId);
     void deleteCalcMethod(Long calcId);
-
+    void deleteAllCalcMethod(CalcType calcType);
 }

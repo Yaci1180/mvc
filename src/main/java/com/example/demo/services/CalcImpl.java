@@ -5,6 +5,7 @@ import com.example.demo.repositories.CalculoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 import static java.lang.StrictMath.pow;
@@ -115,4 +116,10 @@ public class CalcImpl implements Calc {
         calculoRepository.deleteById(calcId);
     }
 
+    @Override
+    public void deleteAllCalcMethod(CalcType calcType){
+        List<Calculo> delete = calculoRepository.findAllByCalcType(calcType);
+        calculoRepository.deleteAll(delete);
+
+    }
 }
